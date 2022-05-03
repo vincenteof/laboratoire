@@ -1,14 +1,14 @@
 import { useImmer } from 'use-immer'
-import Expression from './Expression'
+import ExpressionBar from './ExpressionBar'
 import { IExpression } from './types'
-import './index.css'
+import classes from './index.module.css'
 
 function Playground() {
   const [exps, setExps] = useImmer<IExpression[]>([{ content: '' }])
   return (
-    <div className="Playground">
+    <div className={classes.Playground}>
       {exps.map((exp, idx) => (
-        <Expression exp={exp} key={idx} />
+        <ExpressionBar exp={exp} key={idx} />
       ))}
     </div>
   )
