@@ -1,0 +1,11 @@
+.ToolBox {
+  @apply w-full bg-white fixed left-0 top-0 flex items-center justify-center;
+}
+
+.ToolBox-content {
+  @apply w-4/5 flex;
+}
+
+.ToolBox-btn {
+  @apply p-2 flex items-center justify-center hover:bg-gray-300 hover:cursor-pointer;
+}
