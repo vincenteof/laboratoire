@@ -1,11 +1,10 @@
 import './App.css'
+import PlayGround from './pages/playground'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>Laboratoire</p>
-      </header>
+      <PlayGround />
     </div>
   )
 }
