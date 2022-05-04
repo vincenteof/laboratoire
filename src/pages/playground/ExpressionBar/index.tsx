@@ -1,5 +1,6 @@
 import { useCallback } from 'react'
 import { debounce } from 'lodash-es'
+import cls from 'classnames'
 import { IExpression } from '../../../types'
 import CodeTextArea from '../CodeTextArea'
 import useStore from '../../../store'
@@ -41,7 +42,16 @@ function ExpressionBar(props: ExpressionProps) {
         onChange={onChange}
       />
       {exp.result && (
-        <div className={classes['ExpressionBar-result']}>{exp.result}</div>
+        <div
+          className={cls(
+            classes['ExpressionBar-result'],
+            exp.result.status === 'error' && classes.error
+          )}
+        >
+          {exp.result.status === 'error'
+            ? exp.result.value.message
+            : exp.result.value}
+        </div>
       )}
     </div>
   )

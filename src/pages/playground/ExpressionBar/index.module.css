@@ -1,5 +1,14 @@
 .ExpressionBar {
 }
 
+.ExpressionBar + .ExpressionBar {
+  @apply mt-6;
+}
+
 .ExpressionBar-result {
+  @apply px-3 py-1.5 text-left;
+}
+
+.ExpressionBar-result.error {
+  @apply bg-red-300;
 }
