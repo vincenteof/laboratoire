@@ -2,7 +2,7 @@ import create from 'zustand'
 import { produce } from 'immer'
 import { IExpression } from '../types'
 import { nanoid } from 'nanoid'
-import EvalService from '../services/EvalService'
+import EvaluationService from '../services/EvaluationService'
 
 type IStore = {
   expressions: IExpression[]
@@ -17,12 +17,13 @@ type IStore = {
   pasteCopiedExp: () => void
 }
 
-const evalService = new EvalService()
+const evalService = new EvaluationService()
 
 // todo: user immer middleware and make ts happy
 const useStore = create<IStore>((set) => ({
   expressions: [{ content: '', id: nanoid() }],
   focusedExpId: undefined,
+  copiedExp: undefined,
   setFocusedExpId: (id: string) =>
     set(
       produce((state) => {
@@ -91,7 +92,7 @@ const useStore = create<IStore>((set) => ({
         const targetIndex = state.expressions.findIndex(
           (exp: IExpression) => exp.id === state.focusedExpId
         )
-        if (targetIndex >= 0) {
+        if (targetIndex >= 0 && state.copiedExp) {
           state.expressions.splice(targetIndex + 1, 0, state.copiedExp)
         }
       })

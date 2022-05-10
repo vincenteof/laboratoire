@@ -1,5 +1,5 @@
 import './App.css'
-import PlayGround from './pages/playground'
+import PlayGround from './pages/Playground'
 
 function App() {
   return (

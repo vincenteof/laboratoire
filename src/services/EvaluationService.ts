@@ -1,6 +1,6 @@
 import { IExpression, IExpressionResult } from '../types'
 
-export default class EvalService {
+export default class EvaluationService {
   execute(exp: IExpression): IExpressionResult {
     let result = null
     try {
