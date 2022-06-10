@@ -4,6 +4,7 @@ import { IExpression } from '../types'
 import { nanoid } from 'nanoid'
 import EvaluationService from '../services/EvaluationService'
 
+// todo: replace with redux-toolkit
 type IStore = {
   expressions: IExpression[]
   focusedExpId?: string
